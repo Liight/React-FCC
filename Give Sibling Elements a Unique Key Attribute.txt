@@ -1,0 +1,23 @@
+
+const frontEndFrameworks = [ // array declared as const (unchangable variable at runtime)
+  'React',
+  'Angular',
+  'Ember',
+  'Knockout',
+  'Backbone',
+  'Vue'
+];
+
+function Frameworks() { // Stateless functional component (aka React component?)
+  const renderFrameworks = frontEndFrameworks.map(
+    (x) => <li key={frontEndFrameworks.indexOf(x)}>{x}</li>);; 
+    // Note: frontEndFrameworks.indexOf(x) gets the index of the array item x as it is being mapped
+  return (
+    <div>
+      <h1>Popular Front End JavaScript Frameworks</h1>
+      <ul>
+        {renderFrameworks}
+      </ul>
+    </div>
+  );
+};

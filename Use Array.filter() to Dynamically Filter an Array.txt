@@ -1,0 +1,49 @@
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      users: [
+        {
+          username: 'Jeff',
+          online: true
+        },
+        {
+          username: 'Alan',
+          online: false
+        },
+        {
+          username: 'Mary',
+          online: true
+        },
+        {
+          username: 'Jim',
+          online: false
+        },
+        {
+          username: 'Sara',
+          online: true
+        },
+        {
+          username: 'Laura',
+          online: true
+        }
+      ]
+    }
+  }
+  render() {
+    const usersOnline = this.state.users.filter(user => user.online);
+    // Note: filters the users array for users with the property 'online' set to true
+
+    const renderOnline = usersOnline.map((x) => <li key={usersOnline.indexOf(x)}>{x.username}</li>);
+    // Note: maps each item in the array to a list item and assigns the index of the element in the array as it's key property
+
+    return (
+       <div>
+         <h1>Current Online Users:</h1>
+         <ul>
+           {renderOnline}
+         </ul>
+       </div>
+    );
+  }
+};
